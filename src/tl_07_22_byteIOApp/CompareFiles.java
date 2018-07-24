@@ -9,8 +9,8 @@ public class CompareFiles {
         String file1 = "/Users/cartman/Documents/text1.txt";
         String file2 = "/Users/cartman/Documents/text2.txt";
 
-        FileInputStream flInput1 = new FileInputStream(file1);
-        FileInputStream flInput2 = new FileInputStream(file2);
+//        FileInputStream flInput1 = new FileInputStream(file1);
+//        FileInputStream flInput2 = new FileInputStream(file2);
 
         ArrayList<Integer> arr1 = readFile(file1);
         ArrayList<Integer> arr2 = readFile(file2);
