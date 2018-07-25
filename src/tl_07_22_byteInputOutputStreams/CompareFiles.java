@@ -1,8 +1,7 @@
-package tl_07_22_byteIOApp;
+package tl_07_22_byteInputOutputStreams;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class CompareFiles {
     public static void main(String[] args) throws IOException {

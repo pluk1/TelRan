@@ -1,4 +1,4 @@
-package tl_07_22_byteIOApp;
+package tl_07_22_byteInputOutputStreams;
 
 import java.io.*;
 

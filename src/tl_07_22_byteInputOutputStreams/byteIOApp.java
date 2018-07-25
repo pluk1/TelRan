@@ -1,7 +1,6 @@
-package tl_07_22_byteIOApp;
+package tl_07_22_byteInputOutputStreams;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
