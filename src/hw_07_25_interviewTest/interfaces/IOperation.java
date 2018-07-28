@@ -1,4 +1,4 @@
-package hw_07_25_interviewTest;
+package hw_07_25_interviewTest.interfaces;
 
 import java.io.IOException;
 

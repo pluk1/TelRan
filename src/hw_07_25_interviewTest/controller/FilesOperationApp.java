@@ -1,4 +1,6 @@
-package hw_07_25_interviewTest;
+package hw_07_25_interviewTest.controller;
+
+import hw_07_25_interviewTest.Operation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,8 +11,6 @@ public class FilesOperationApp {
     public static void main(String[] args)
             throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
 
-        // "/Users/cartman/Documents/text1.txt";
-        //  "/Users/cartman/Documents/text2.txt";
 
         BufferedReader fileNameReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -24,7 +24,6 @@ public class FilesOperationApp {
         String action = fileNameReader.readLine();
 
         fileNameReader.close();
-
 
         Operation.operation(inFile,outFile,action);
     }

@@ -1,8 +1,10 @@
-package hw_07_25_interviewTest;
+package hw_07_25_interviewTest.model;
+
+import hw_07_25_interviewTest.interfaces.IOperation;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 
 public class Sort implements IOperation {
 
@@ -15,28 +17,27 @@ public class Sort implements IOperation {
         try (BufferedReader fileReader =
                      new BufferedReader(new FileReader(new File(inFileName)))) {
 
-            while (fileReader.ready()){
+            while (fileReader.ready()) {
 
                 inFileArray.add(fileReader.readLine());
             }
 
         } catch (Exception e) {
 
+            System.out.println(e.getMessage());
+
         }
 
-        inFileArray.sort(Comparator.naturalOrder());
 
-        System.out.println(inFileArray);
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(outFileName))) {
 
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(outFileName))){
+            Collections.sort(inFileArray);
 
             inFileArray.forEach(s -> printWriter.println(s));
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
         }
-        catch (Exception e){
-
-        }
-
-
 
     }
 }
