@@ -24,17 +24,17 @@ public class ReadWriteFile {
         return fileArray;
     }
 
-    public static int writeFile(ArrayList fileArray, String dstFileName) {
+    public static boolean writeFile(ArrayList fileArray, String dstFileName) {
 
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(dstFileName))) {
 
             fileArray.forEach(s -> printWriter.println(s));
 
-            return 1;
+            return true;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return -1;
+            return false;
         }
 
     }
