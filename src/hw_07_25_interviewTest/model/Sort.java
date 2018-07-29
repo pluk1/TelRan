@@ -1,5 +1,6 @@
 package hw_07_25_interviewTest.model;
 
+import hw_07_25_interviewTest.ReadWriteFile;
 import hw_07_25_interviewTest.interfaces.IOperation;
 
 import java.io.*;
@@ -11,33 +12,11 @@ public class Sort implements IOperation {
     @Override
     public void action(String inFileName, String outFileName) {
 
+        ArrayList<String> inFileArray = ReadWriteFile.readFile(inFileName);
 
-        ArrayList<String> inFileArray = new ArrayList<>();
+        Collections.sort(inFileArray);
 
-        try (BufferedReader fileReader =
-                     new BufferedReader(new FileReader(new File(inFileName)))) {
-
-            while (fileReader.ready()) {
-
-                inFileArray.add(fileReader.readLine());
-            }
-
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-
-        }
-
-
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(outFileName))) {
-
-            Collections.sort(inFileArray);
-
-            inFileArray.forEach(s -> printWriter.println(s));
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-        }
+        ReadWriteFile.writeFile(inFileArray,outFileName);
 
     }
 }

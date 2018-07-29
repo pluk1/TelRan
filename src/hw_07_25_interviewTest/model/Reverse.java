@@ -1,5 +1,6 @@
 package hw_07_25_interviewTest.model;
 
+import hw_07_25_interviewTest.ReadWriteFile;
 import hw_07_25_interviewTest.interfaces.IOperation;
 
 import java.io.*;
@@ -9,31 +10,14 @@ import java.util.Collections;
 public class Reverse implements IOperation {
     @Override
     public void action(String inFileName, String outFileName) {
-        ArrayList<String> inFileArray = new ArrayList<>();
 
-        try (BufferedReader fileReader =
-                     new BufferedReader(new FileReader(new File(inFileName)))) {
+        ArrayList<String> inFileArray = ReadWriteFile.readFile(inFileName);
 
-            while (fileReader.ready()) {
+        Collections.reverse(inFileArray);
 
-                inFileArray.add(fileReader.readLine());
-            }
-
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-
-        }
+        ReadWriteFile.writeFile(inFileArray,outFileName);
 
 
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(outFileName))) {
 
-            Collections.reverse(inFileArray);
-
-            inFileArray.forEach(s -> printWriter.println(s));
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-        }
     }
 }

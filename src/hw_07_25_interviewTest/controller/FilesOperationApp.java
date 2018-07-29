@@ -11,6 +11,7 @@ public class FilesOperationApp {
     public static void main(String[] args)
             throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
 
+        // /Users/cartman/Documents/text1.txt
 
         BufferedReader fileNameReader = new BufferedReader(new InputStreamReader(System.in));
 

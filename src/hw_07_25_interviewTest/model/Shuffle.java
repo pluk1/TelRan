@@ -1,5 +1,6 @@
 package hw_07_25_interviewTest.model;
 
+import hw_07_25_interviewTest.ReadWriteFile;
 import hw_07_25_interviewTest.interfaces.IOperation;
 
 import java.io.*;
@@ -10,29 +11,14 @@ public class Shuffle implements IOperation {
 
     @Override
     public void action(String inFileName, String outFileName) {
-        ArrayList<String> inFileArray = new ArrayList<>();
 
-        try (BufferedReader fileReader =
-                     new BufferedReader(new FileReader(new File(inFileName)))) {
+       // ReadWriteFile readWriteFile = new ReadWriteFile();
 
-            while (fileReader.ready()) {
+        ArrayList<String> inFileArray = ReadWriteFile.readFile(inFileName);
 
-                inFileArray.add(fileReader.readLine());
-            }
+        Collections.shuffle(inFileArray);
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        ReadWriteFile.writeFile(inFileArray,outFileName);
 
-
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(outFileName))) {
-
-            Collections.shuffle(inFileArray);
-
-            inFileArray.forEach(s -> printWriter.println(s));
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }
